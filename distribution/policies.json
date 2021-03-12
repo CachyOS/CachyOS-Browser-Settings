@@ -106,14 +106,6 @@
                     "IconURL": "https://www.startpage.com/assets/images/logo-180x180.png"
                 },
                 {
-                    "Name": "Jive Search",
-                    "Description": "A search engine that doesn't track you.",
-                    "Alias": "",
-                    "Method": "GET",
-                    "URLTemplate": "https://jivesearch.com/?q={searchTerms}",
-                    "IconURL": "https://jivesearch.com/static/icons/favicon.ico"
-                },
-                {
                     "Name": "Qwant",
                     "Description": "The search engine that respects your privacy.",
                     "Alias": "",
