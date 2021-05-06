@@ -2,6 +2,7 @@
 
 * How do I toggle the proton ui? [open]
 * How do I enable DRM? [open]
+* How do I enable microphone / webcam? [open]
 * How do I make LibreWolf remember all the cookies? [discuss]
 * How do I enable dark theming on websites such as duckduckgo.com? [open]
 * How do I switch to another language, say, to brazil/portuguese? [opem]
