@@ -1,11 +1,13 @@
 # Questions:
 
+The questions [open] and [disscussion] are discussed in [the faq issue](https://gitlab.com/librewolf-community/settings/-/issues/50).
+
 * How do I toggle the proton ui? [open]
 * How do I enable DRM? [open]
 * How do I enable microphone / webcam? [open]
-* How do I make LibreWolf remember all the cookies? [discuss]
+* How do I make LibreWolf remember all the cookies? [discussion]
 * How do I enable dark theming on websites such as duckduckgo.com? [open]
-* How do I switch to another language, say, to brazil/portuguese? [opem]
+* How do I switch to another language, say, to brazil/portuguese? [open]
 
 # How do I make LibreWolf remember all the cookies?
 
