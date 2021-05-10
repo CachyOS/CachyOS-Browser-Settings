@@ -395,6 +395,7 @@ lockPref("extensions.webapi.testing", false); // hidden but default false
 lockPref("canvas.capturestream.enabled", false); // any real benefit?
 lockPref("network.http.redirection-limit", 10); // small benefit from having it at default 20, and break some payments
 defaultPref("dom.event.clipboardevents.enabled", false); // causes breakage with small benefits, moved to hardened setup
+lockPref("webgl.disable-fail-if-major-performance-caveat", true); // default
 
 // fxaccounts is disabled in policies
 lockPref("identity.fxaccounts.enabled", false);
@@ -636,12 +637,15 @@ extensions.update.url = "https://versioncheck.addons.mozilla.org/update/VersionC
 security.OCSP.enabled = 1
 ```
 you probably also want `security.OCSP.require = true`
-
+#### Enable WebGL
+```
+defaultPref("webgl.disabled", false);
+lockPref("webgl.enable-webgl2", true);
+```
 #### Hardened setup
 ```
 defaultPref("javascript.options.asmjs", false); // disable asm.js
 defaultPref("javascript.options.wasm", false); // disable web assembly
-defaultPref("webgl.disabled", true); // disable webgl
 defaultPref("privacy.resistFingerprinting.letterboxing", true); // enable letterboxing
 defaultPref("dom.event.clipboardevents.enabled", false); // disable user triggered clipboard access
 ```
