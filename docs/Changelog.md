@@ -583,6 +583,80 @@ defaultPref("extensions.blocklist.itemURL", "");
 defaultPref("security.OCSP.enabled", 0); // someone might want to have it on for security concerns
 defaultPref("security.OCSP.require", false);
 defaultPref("reader.parse-on-load.enabled", false);
+defaultPref("webgl.enable-webgl2", false);
+defaultPref("geo.provider.network.url", "");
+defaultPref("geo.provider.network.logging.enabled", false);
+defaultPref("network.http.referer.XOriginTrimmingPolicy", 2);
+defaultPref("network.http.referer.XOriginPolicy", 0);
+defaultPref("browser.download.manager.addToRecentDocs", false);
+defaultPref("accessibility.force_disabled", 1);
+defaultPref("network.manage-offline-status", false);
+defaultPref("browser.helperApps.deleteTempFileOnExit", true);
+defaultPref("dom.push.enabled", false);
+defaultPref("dom.push.connection.enabled", false);
+defaultPref("dom.push.serverURL", ""); //default "wss://push.services.mozilla.com/"
+defaultPref("dom.push.userAgentID", "");
+defaultPref("dom.targetBlankNoOpener.enabled", true);
+defaultPref("dom.disable_window_move_resize", true);
+defaultPref("dom.disable_beforeunload", true);
+defaultPref("dom.popup_maximum", 4);
+defaultPref("dom.vr.enabled", false);
+defaultPref("dom.vibrator.enabled", false);
+defaultPref("network.stricttransportsecurity.preloadlist",	false);
+defaultPref("browser.ssl_override_behavior", 1);
+defaultPref("security.tls.version.fallback-limit", 3);
+defaultPref("browser.xul.error_pages.expert_bad_cert", true); // advanced ui infos
+defaultPref("extensions.enabledScopes", 5);
+defaultPref("extensions.autoDisableScopes", 11);
+defaultPref("xpinstall.signatures.devInfoURL", "");
+defaultPref("security.cert_pinning.enforcement_level", 2);
+defaultPref("devtools.performance.recording.ui-base-url", "http://localhost:55555"); // Default Value : https://profiler.firefox.com
+defaultPref("devtools.devices.url", "");
+defaultPref("devtools.remote.adb.extensionURL", ""); // [FF64+]
+defaultPref("devtools.remote.adb.extensionID", ""); // default adb@mozilla.org [FF64+]
+defaultPref("browser.safebrowsing.id", "");
+defaultPref("browser.safebrowsing.blockedURIs.enabled", false);
+defaultPref("browser.safebrowsing.provider.google4.pver", "");
+defaultPref("browser.safebrowsing.provider.google4.advisoryName", "");
+defaultPref("browser.safebrowsing.provider.google4.advisoryURL", "");
+defaultPref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+defaultPref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+defaultPref("browser.safebrowsing.provider.google4.gethashURL", "");
+defaultPref("browser.safebrowsing.provider.google4.lists", "");
+defaultPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+defaultPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+defaultPref("browser.safebrowsing.provider.google4.reportURL", "");
+defaultPref("browser.safebrowsing.provider.google4.updateURL", "");
+defaultPref("browser.safebrowsing.provider.google4.lastupdatetime", "");
+defaultPref("browser.safebrowsing.provider.google4.nextupdatetime", "");
+defaultPref("browser.safebrowsing.provider.google.advisoryName", "");
+defaultPref("browser.safebrowsing.provider.google.advisoryURL", "");
+defaultPref("browser.safebrowsing.provider.google.gethashURL", "");
+defaultPref("browser.safebrowsing.provider.google.lastupdatetime", "");
+defaultPref("browser.safebrowsing.provider.google.lists", "");
+defaultPref("browser.safebrowsing.provider.google.nextupdatetime", "");
+defaultPref("browser.safebrowsing.provider.google.pver", "");
+defaultPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+defaultPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+defaultPref("browser.safebrowsing.provider.google.reportURL", "");
+defaultPref("browser.safebrowsing.provider.google.updateURL", "");
+defaultPref("browser.safebrowsing.provider.mozilla.pver", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists.base", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists.content", "");
+defaultPref("browser.safebrowsing.provider.mozilla.updateURL", "");
+defaultPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+defaultPref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+defaultPref("browser.safebrowsing.reportPhishURL", "");
+defaultPref("browser.safebrowsing.malware.enabled", false);
+defaultPref("browser.safebrowsing.passwords.enabled", false);
+defaultPref("browser.safebrowsing.phishing.enabled", false);
+defaultPref("browser.urlbar.trimURLs", false);
+defaultPref("browser.search.suggest.enabled", false);
+defaultPref("browser.search.region", "US");
+defaultPref("browser.urlbar.suggest.searches", false);
+defaultPref("browser.search.update", false);
 ```
 
 #### To discuss
