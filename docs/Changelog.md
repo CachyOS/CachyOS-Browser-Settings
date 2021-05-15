@@ -396,6 +396,7 @@ lockPref("canvas.capturestream.enabled", false); // any real benefit?
 lockPref("network.http.redirection-limit", 10); // small benefit from having it at default 20, and break some payments
 defaultPref("dom.event.clipboardevents.enabled", false); // causes breakage with small benefits, moved to hardened setup
 lockPref("webgl.disable-fail-if-major-performance-caveat", true); // default
+lockPref("network.trr.send_empty_accept-encoding_headers", false); // why?
 
 // fxaccounts is disabled in policies
 lockPref("identity.fxaccounts.enabled", false);
@@ -663,10 +664,10 @@ defaultPref("browser.search.update", false);
 Prefs that need to be addressed and potential roadmap
 ```
 Open points:
-// How much should we lock?
+// How much should we lock? -> being addressed, see above
 // How in depth should we go with urls
 // SB - make re-enabling easier, test connections
-// GEO - review to allow easier re-enabling
+// GEO - review to allow easier re-enabling -> tested that adding mozilla service urls does not harm at all, could be changed
 // evaluate certificate handling (oscp, crlite, blocklist)
 
 missing from arkenfox in need of discussion:
@@ -674,52 +675,4 @@ security.pki.crlite_mode  ->  DISCUSS
 security.remote_settings.crlite_filters.enabled  ->  DISCUSS
 dom.security.https_only_mode_send_http_background_request  ->  DISCUSS
 browser.download.useDownloadDir  ->  do we want to ask for download location each time?
-```
-
-## How to...
-#### Stay logged
-Add website to exceptions before login, both http and https link
-#### Enable DRM content
-```
-media.eme.enabled = true
-media.gmp-widevinecdm.visible = true
-media.gmp-widevinecdm.enabled = true
-media.gmp-provider.enabled = true
-media.gmp-manager.url = https://aus5.mozilla.org/update/3/GMP/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
-```
-#### Use video conferencing
-```
-media.peerconnection.enabled = true
-media.peerconnection.ice.no_host = true
-dom.webaudio.enabled = true
-```
-screensharing `media.getusermedia.screensharing.enabled = true`
-#### Enable addons search
-```
-extensions.getAddons.search.browseURL = "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%&platform=%OS%&appver=%VERSION%"
-```
-#### Enable addons manual updates
-```
-extensions.update.url = "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=
-%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=
-%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=
-%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=
-%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%"
-```
-#### Enable OCSP certificate checking
-```
-security.OCSP.enabled = 1
-```
-you probably also want `security.OCSP.require = true`
-#### Enable WebGL
-```
-defaultPref("webgl.disabled", false);
-lockPref("webgl.enable-webgl2", true);
-```
-#### Hardened setup
-```
-defaultPref("javascript.options.asmjs", false); // disable asm.js
-defaultPref("javascript.options.wasm", false); // disable web assembly
-defaultPref("privacy.resistFingerprinting.letterboxing", true); // enable letterboxing
-defaultPref("dom.event.clipboardevents.enabled", false); // disable user triggered clipboard access
 ```
