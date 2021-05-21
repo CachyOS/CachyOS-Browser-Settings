@@ -34,6 +34,8 @@ defaultPref("extensions.postDownloadThirdPartyPrompt", false);
 defaultPref("general.warnOnAboutConfig", false);
 defaultPref("network.auth.subresource-http-auth-allow", 1);
 defaultPref("browser.display.use_system_colors", false);
+defaultPref("browser.cache.disk.enable", false);
+defaultPref("fission.autostart", true);
 ```
 
 #### Modified
@@ -552,6 +554,38 @@ lockPref("browser.contentblocking.report.vpn.url", "");
 lockPref("browser.contentblocking.report.vpn-promo.url", "");
 lockPref("browser.contentblocking.report.vpn-ios.url", "");
 lockPref("browser.contentblocking.report.vpn-android.url", "");
+
+// urls that do not damage and make re-enabling TP a pain
+lockPref("browser.contentblocking.reportBreakage.url", "");
+defaultPref("browser.safebrowsing.provider.mozilla.pver", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists.base", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lists.content", "");
+defaultPref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+defaultPref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+lockPref("urlclassifier.trackingTable", "");
+lockPref("browser.contentblocking.database.enabled", false);
+
+lockPref("privacy.trackingprotection.socialtracking.enabled", false); // default
+defaultPref("network.stricttransportsecurity.preloadlist",	false); // nothing wrong with hsts
+lockPref("security.ssl.disable_session_identifiers", true); // covered by isolation, large performance hit
+// defaultPref("intl.regional_prefs.use_os_locales", false); // default and already commented
+lockPref("extensions.screenshots.upload-disabled", true); // deprecated feature
+lockPref("dom.ipc.plugins.reportCrashURL", false); // flash is gone, does nothing
+lockPref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false); // flash is gone, does nothing
+lockPref("plugin.state.flash", 0); // flash is gone, does nothing
+defaultPref("alerts.showFavicons", false); // default
+lockPref("plugin.default.state", 1); // default
+lockPref("extensions.pocket.enabled", false); // pocket is already disabled
+lockPref("extensions.pocket.site", ""); // pocket is already disabled
+lockPref("extensions.pocket.oAuthConsumerKey", ""); // pocket is already disabled
+lockPref("extensions.pocket.api", ""); // pocket is already disabled
+defaultPref("accessibility.typeaheadfind", false); // default
+defaultPref("reader.parse-on-load.enabled", false); // no need to have it locked, even Tor Browser re-enabled it
+lockPref("gecko.handlerService.schemes.webcal.0.uriTemplate", ""); // default
+defaultPref("network.proxy.socks_version", 5); // default
+defaultPref("network.proxy.autoconfig_url", ""); // default
+defaultPref("extensions.formautofill.section.enabled", false); // no effect
 ```
 #### Commented
 Prefs that need to be addressed and that were disabled for now
@@ -563,6 +597,34 @@ Prefs that need to be addressed and that were disabled for now
 // defaultPref("media.peerconnection.identity.timeout", 1);
 // defaultPref("media.peerconnection.turn.disable", true);
 // defaultPref("media.peerconnection.ice.tcp", false);
+
+// blocklist is a security feature, best left at default
+// defaultPref("extensions.blocklist.enabled", false);
+// defaultPref("extensions.blocklist.detailsURL", "");
+// defaultPref("extensions.blocklist.itemURL", "");
+
+// commented all below as they do no harm and make enabling SB painful
+// could potentially at some point
+// defaultPref("browser.safebrowsing.id", "");
+// defaultPref("browser.safebrowsing.provider.google4.pver", "");
+// defaultPref("browser.safebrowsing.provider.google4.advisoryName", "");
+// defaultPref("browser.safebrowsing.provider.google4.advisoryURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.lists", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.lastupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google4.nextupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.advisoryName", "");
+// defaultPref("browser.safebrowsing.provider.google.advisoryURL", "");
+// defaultPref("browser.safebrowsing.provider.google.lastupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.lists", "");
+// defaultPref("browser.safebrowsing.provider.google.nextupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.pver", "");
+// defaultPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google.reportURL", "");
+// defaultPref("browser.safebrowsing.reportPhishURL", "");
 ```
 
 #### Unlocked
@@ -658,6 +720,10 @@ defaultPref("browser.search.suggest.enabled", false);
 defaultPref("browser.search.region", "US");
 defaultPref("browser.urlbar.suggest.searches", false);
 defaultPref("browser.search.update", false);
+defaultPref("browser.contentblocking.cryptomining.preferences.ui.enabled", false); // enable UI elements of TP if you want to use it
+defaultPref("browser.contentblocking.fingerprinting.preferences.ui.enabled", false); // enable UI elements of TP if you want to use it
+defaultPref("privacy.trackingprotection.cryptomining.enabled", false); // user can manually choose what to do once he enables UI with the above prefs
+defaultPref("privacy.trackingprotection.fingerprinting.enabled", false); // user can manually choose what to do once he enables UI with the above prefs
 ```
 
 #### To discuss
