@@ -16,7 +16,6 @@ We encourage users to find **their own setup** and to use our default configurat
 - [Issue tracker](https://gitlab.com/librewolf-community/settings/-/issues)
 - Our community on [gitter](https://gitter.im/librewolf-community/librewolf)
 - [Website](https://librewolf-community.gitlab.io/)
-- [Docs](https://librewolf.readthedocs.io/en/latest/)
 - [r/LibreWolf](https://www.reddit.com/r/LibreWolf/)
 
 ## Notes and thanks
