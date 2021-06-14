@@ -1,4 +1,4 @@
-This changelod will be used from now on to document changes in a precise manner, with a list of changes for each setting version.
+This changelog will be used from now on to document changes in a precise manner, with a list of changes for each setting version.
 Setting versions are documented using the pref `librewolf.cfg.version`, available in about:config.
 
 ## 1.0
