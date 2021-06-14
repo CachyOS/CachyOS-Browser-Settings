@@ -9,7 +9,7 @@ Setting versions are documented using the pref `librewolf.cfg.version`, availabl
 This is the initial release from which we start tagging and versioning settings.
 
 ## 1.1
-**target commit**:
+**target commit**: cf0a2cc88acdbc51b138228353a0d7c9ea0db7c3
 
 **base librewolf version**: 89.x
 
