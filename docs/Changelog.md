@@ -34,3 +34,23 @@ defaultPref("geo.provider.network.url", "https://location.services.mozilla.com/v
 ```
 lockPref("privacy.override_rfp_for_color_scheme", false);
 ```
+
+## 1.2
+**target commit**:
+
+**base librewolf version**: 89.x
+
+**References**:
+- issue [#65](https://gitlab.com/librewolf-community/settings/-/issues/65) from settings
+- issue [#22](https://gitlab.com/librewolf-community/browser/common/-/issues/22) from common
+
+#### Removed preferences
+```
+defaultPref("dom.webaudio.enabled", false);
+defaultPref("media.navigator.enabled", false);
+```
+
+#### Changed preferences
+```
+defaultPref("app.support.baseURL", "https://gitlab.com/librewolf-community/settings/-/wikis/support#");
+```
