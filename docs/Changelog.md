@@ -36,7 +36,7 @@ lockPref("privacy.override_rfp_for_color_scheme", false);
 ```
 
 ## 1.2
-**target commit**:
+**target commit**: 294724fae38ffa4ebcf6dfb0854787fb7022d1e6
 
 **base librewolf version**: 89.x
 
@@ -53,4 +53,19 @@ defaultPref("media.navigator.enabled", false);
 #### Changed preferences
 ```
 defaultPref("app.support.baseURL", "https://gitlab.com/librewolf-community/settings/-/wikis/support#");
+```
+
+## 1.3
+**target commit**: 60e75e30c6018a5c909a2f00f40831ed3f1948a6
+
+**base librewolf version**: 90.x
+
+#### Added preferences
+```
+defaultPref("network.http.windows-sso.enabled", false);
+```
+
+#### Removed preferences
+```
+lockPref("browser.cache.offline.storage.enable", false); // pref does not exist anymore as it became default behavior
 ```
