@@ -69,3 +69,13 @@ defaultPref("network.http.windows-sso.enabled", false);
 ```
 lockPref("browser.cache.offline.storage.enable", false); // pref does not exist anymore as it became default behavior
 ```
+
+## 1.4
+**target commit**: 2e21db4c3018321a077d9af2ec44b29675c57adf
+
+**base librewolf version**: 90.x
+
+#### Removed preferences
+```
+lockPref("security.tls.version.enable-deprecated", false); // default
+```
