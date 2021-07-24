@@ -31,7 +31,7 @@
         },
         "Extensions": {
             "Install": [
-                "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.36.2-an+fx.xpi"
+                "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.37.0-an+fx.xpi"
             ],
             "Uninstall": [
                 "google@search.mozilla.org",
