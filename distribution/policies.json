@@ -31,7 +31,9 @@
         },
         "Extensions": {
             "Install": [
-                "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.37.0-an+fx.xpi"
+                "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.37.0-an+fx.xpi",
+                "https://addons.cdn.mozilla.net/user-media/addons/722/noscript_security_suite-11.2.11-an+fx.xpi",
+                "https://addons.cdn.mozilla.net/user-media/addons/534930/canvasblocker-1.6.1-an+fx.xpi"
             ],
             "Uninstall": [
                 "google@search.mozilla.org",
