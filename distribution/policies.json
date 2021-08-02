@@ -36,7 +36,7 @@
                 "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.37.0-an+fx.xpi",
                 "https://addons.cdn.mozilla.net/user-media/addons/722/noscript_security_suite-11.2.11-an+fx.xpi",
                 "https://addons.cdn.mozilla.net/user-media/addons/839767/clearurls-1.21.0-an+fx.xpi",
-                "https://addons.mozilla.org/firefox/downloads/file/3711856/midnight_lizard-10.7.1-an+fx.xpi"
+                "https://addons.cdn.mozilla.net/user-media/addons/955405/midnight_lizard-10.7.1-an+fx.xpi"
             ],
             "Uninstall": [
                 "google@search.mozilla.org",
@@ -110,8 +110,8 @@
             ]
         },
         "SupportMenu": {
-            "Title": "LibreWolf Issue Tracker",
-            "URL": "https://gitlab.com/librewolf-community/settings/issues"
+            "Title": "Cachy Browser Issue Tracker",
+            "URL": "https://gitea.cachyos.org/CachyOS/cachyos-browser-settings/issues"
         }
     }
 }
