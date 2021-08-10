@@ -79,3 +79,31 @@ lockPref("browser.cache.offline.storage.enable", false); // pref does not exist 
 ```
 lockPref("security.tls.version.enable-deprecated", false); // default
 ```
+
+## 1.5
+
+**target commit**: 23d1bff4f4ae3456df8e50e67f657ea6288eef29
+
+**base librewolf version**: 91.x
+
+**References**:
+- [comment](https://github.com/arkenfox/user.js/commit/3bb9fc713f141d794fc4adfb38d3fcf86c9307ab#commitcomment-53916786) from arkenfox's maintainer regarding tls version pref
+- [mozilla update service](https://support.mozilla.org/en-US/kb/enable-background-updates-firefox-windows)
+- extension firewall has been revisited
+
+#### Removed preferences
+```
+lockPref("security.dialog_enable_delay", 700); // default 1000, no need to enforce this
+```
+
+#### Added preferences
+```
+defaultPref("app.update.background.scheduling.enabled", false); // Win specific update service
+defaultPref("security.tls.version.enable-deprecated", false); // default but helps resetting the preference
+// defaultPref("extensions.webextensions.base-content-security-policy.v3", "default-src 'none'; script-src 'none'; object-src 'none';");
+```
+
+#### Changed preferences
+```
+// defaultPref("extensions.webextensions.base-content-security-policy", "default-src 'none'; script-src 'none'; object-src 'none';");
+```
