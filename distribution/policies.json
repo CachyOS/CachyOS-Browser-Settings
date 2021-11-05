@@ -8,7 +8,6 @@
         "DisableSystemAddonUpdate": true,
         "DisableFirefoxAccounts": true,
         "DisableProfileImport": false,
-        "DisableMasterPasswordCreation": true,
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
         "DisableFeedbackCommands": true,
@@ -110,7 +109,7 @@
         },
         "SupportMenu": {
             "Title": "Cachy Browser Issue Tracker",
-            "URL": "https://gitea.cachyos.org/CachyOS/cachyos-browser-settings/issues"
+            "URL": "https://github.com/CachyOS/CachyOS-Browser-Settings/issues"
         }
     }
 }
