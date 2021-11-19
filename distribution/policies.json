@@ -31,10 +31,10 @@
         "Extensions": {
             "Install": [
                 "https://addons.cdn.mozilla.net/user-media/addons/2696062/moonlight-1.0-an+fx.xpi",
-                "https://addons.cdn.mozilla.net/user-media/addons/534930/canvasblocker-1.6.1-an+fx.xpi",
+                "https://addons.mozilla.org/firefox/downloads/file/3864535/canvasblocker-1.7-an+fx.xpi",
                 "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.38.6-an+fx.xpi",
                 "https://addons.cdn.mozilla.net/user-media/addons/839767/clearurls-1.21.0-an+fx.xpi",
-                "https://addons.cdn.mozilla.net/user-media/addons/855413/dark_reader-4.9.39-an+fx.xpi"
+                "https://addons.mozilla.org/firefox/downloads/file/3864423/dark_reader-4.9.42-an+fx.xpi"
             ],
             "Uninstall": [
                 "google@search.mozilla.org",
