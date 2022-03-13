@@ -1,6 +1,11 @@
-## Cachy Browser settings
+<img src="./preview.png" alt="Preview image"></img>
+
+# Cachy Browser settings
 
 ##### This repository benefits from the knowledge and research provided by [arkenfox](https://github.com/arkenfox), their documentation was vital to this revamp, so special thanks to their project. We do not use arkenfox's user.js but we try to keep up with it, and we also consider it a great resource for users who want to find their own setup.
+
+We encourage users to find **their own setup** and to use our default configuration as something to build on top of. This is now easier thanks to the overrides, just place your own preferences in the proper location:
+-> `~/.cachy/cachy.overrides.cfg`
 
 ### Differences from LibreWolf:
 
