@@ -1,0 +1,736 @@
+//------------------|
+//   CachyBrowser   |
+//------------------|
+
+/**
+
+ NOTE: please take the time to read and understand, but also to customize the settings to find your own setup.
+ the answers to the most common questions are at this link https://librewolf.net/docs/faq/
+
+ */
+
+// -----------------------------------
+// # SETTINGS VERSION
+// -----------------------------------
+
+defaultPref("cachy.cfg.version", "3.4");
+
+// -----------------------------------
+// # TRACKING PROTECTION
+// -----------------------------------
+
+defaultPref("browser.contentblocking.category", "custom"); // do not lock as it breaks UI even more
+lockPref("privacy.trackingprotection.enabled", false);
+lockPref("privacy.trackingprotection.pbmode.enabled", false);
+defaultPref("privacy.trackingprotection.cryptomining.enabled", false);
+defaultPref("privacy.trackingprotection.fingerprinting.enabled", false);
+lockPref("privacy.trackingprotection.annotate_channels", false);
+
+// remove urls
+defaultPref("browser.safebrowsing.provider.mozilla.updateURL", "");
+defaultPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+
+// hide ui elements
+defaultPref("browser.contentblocking.cryptomining.preferences.ui.enabled", false);
+defaultPref("browser.contentblocking.fingerprinting.preferences.ui.enabled", false);
+lockPref("browser.contentblocking.report.hide_vpn_banner", true);
+lockPref("browser.contentblocking.report.show_mobile_app", false);
+lockPref("browser.contentblocking.report.lockwise.enabled", false);
+lockPref("browser.contentblocking.report.monitor.enabled", false);
+lockPref("browser.contentblocking.report.vpn.enabled", false);
+
+// ----------------------------------
+// # AUTOPLAY
+// ----------------------------------
+
+defaultPref("media.autoplay.default", 5);
+defaultPref("media.autoplay.blocking_policy", 2);
+
+// -----------------------------------------
+// # PASSWORD MANAGER
+// -----------------------------------------
+
+lockPref("signon.rememberSignons", false);
+lockPref("signon.storeWhenAutocompleteOff", false);
+lockPref("signon.formlessCapture.enabled", false);
+lockPref("signon.autofillForms", false);
+defaultPref("signon.management.page.breach-alerts.enabled", false);
+defaultPref("signon.management.page.breachAlertUrl", "");
+
+// --------------------------------
+// # SEARCH AND URLBAR
+// --------------------------------
+
+defaultPref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+lockPref("browser.urlbar.speculativeConnect.enabled", false);
+defaultPref("browser.urlbar.trimURLs", false);
+defaultPref("browser.search.suggest.enabled", false);
+lockPref("browser.fixup.alternate.enabled", false);
+defaultPref("browser.urlbar.suggest.searches", false);
+defaultPref("browser.urlbar.suggest.history", false);
+defaultPref("browser.search.update", false);
+
+// firefox suggest, review to trim
+lockPref("browser.urlbar.quicksuggest.scenario", "history"); // prevent opt-in, doesn't work alone
+lockPref("browser.urlbar.quicksuggest.enabled", false); // disable suggest and hide its ui
+lockPref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // disable suggestions from firefox
+lockPref("browser.urlbar.suggest.quicksuggest.sponsored", false); // disable sponsored suggestions
+lockPref("browser.urlbar.quicksuggest.dataCollection.enabled", false); // default
+
+// --------------------------------
+// # SANITIZING, COOKIES AND HISTORY
+// --------------------------------
+
+defaultPref("network.cookie.cookieBehavior", 1); // dFPI, previously set to 5
+defaultPref("network.cookie.lifetimePolicy", 2);
+defaultPref("network.cookie.thirdparty.sessionOnly", true);
+defaultPref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+
+defaultPref("privacy.partition.serviceWorkers", true); // isolate service workers
+
+// includes new cookie behavior that allows to stay logged with exceptions
+defaultPref("privacy.clearOnShutdown.cookies", false);
+defaultPref("privacy.clearOnShutdown.offlineApps", false);
+defaultPref("privacy.cpd.cookies", false); // just for consistency to avoid accidental logout
+defaultPref("privacy.cpd.offlineApps", false); // just for consistency to avoid accidental logout
+defaultPref("privacy.cpd.passwords", true);
+defaultPref("privacy.cpd.siteSettings", true);
+
+defaultPref("privacy.sanitize.timeSpan", 0);
+defaultPref("privacy.sanitize.sanitizeOnShutdown", true);
+defaultPref("privacy.history.custom", true);
+
+// disable browsing, search and form history
+defaultPref("places.history.enabled", false);
+defaultPref("browser.formfill.enable", false);
+
+// --------------------------------------------------------------------
+// # SESSIONS
+// --------------------------------------------------------------------
+
+defaultPref("browser.sessionstore.max_tabs_undo", 0);
+defaultPref("browser.sessionstore.max_windows_undo", 0);
+defaultPref("browser.sessionstore.privacy_level", 2);
+defaultPref("browser.sessionstore.interval", 60000);
+
+// ---------------------------------
+// # AUTOFILL
+// ---------------------------------
+
+defaultPref("extensions.formautofill.available", "off");
+defaultPref("extensions.formautofill.addresses.enabled", false);
+defaultPref("extensions.formautofill.creditCards.enabled", false);
+defaultPref("extensions.formautofill.creditCards.available", false);
+defaultPref("extensions.formautofill.heuristics.enabled", false);
+
+// -----------------------
+// # DRM
+// -----------------------
+
+defaultPref("media.eme.enabled", false);
+defaultPref("media.gmp-widevinecdm.visible", false);
+defaultPref("media.gmp-widevinecdm.enabled", false);
+defaultPref("media.gmp-provider.enabled", false);
+defaultPref("media.gmp-manager.url", "data:text/plain,"); // had to re-add to prevent connections
+
+defaultPref("media.gmp-gmpopenh264.enabled", false);
+defaultPref("media.gmp-gmpopenh264.autoupdate", false);
+defaultPref("media.gmp-gmpopenh264.provider.enabled", false);
+defaultPref("media.gmp-gmpopenh264.visible", false);
+
+// ----------------------
+// # WEBRTC
+// ----------------------
+
+defaultPref("media.navigator.enabled", false);
+defaultPref("media.peerconnection.enabled", false);
+
+// limit potential IP leaks for webrtc users
+defaultPref("media.peerconnection.ice.default_address_only", true); // use public IP for ICE candidates
+defaultPref("media.peerconnection.ice.no_host", true); // don't use local IP for ICE candidates
+defaultPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true); // force webrtc inside proxy for proxy users
+
+// ----------------------
+// # SHARING
+// ----------------------
+
+defaultPref("media.getusermedia.browser.enabled", false);
+defaultPref("media.getusermedia.screensharing.enabled", false);
+defaultPref("media.getusermedia.audiocapture.enabled", false);
+
+// ----------------------------
+// # DNS
+// ----------------------------
+
+/**
+ 0 = default
+ 1 = browser picks faster
+ 2 = DoH with system dns fallback
+ 3 = DoH without fallback
+ 5 = DoH is off, default currently
+
+ below prefs must be applied with pref in order to work
+*/
+// pref("network.trr.mode", 2);
+// pref("network.trr.uri", "https://dns.quad9.net/dns-query");
+
+defaultPref("network.trr.uri", "");
+defaultPref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "NextDNS", "url": "https://trr.dns.nextdns.io/" },{ "name": "dnsforge.de", "url": "https://dnsforge.de/dns-query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Freifunk Muenchen", "url": "https://doh.ffmuc.net/dns-query" }, { "name": "BlahDNS (DE)", "url": "https://doh-de.blahdns.com/dns-query" }, { "name": "BlahDNS (FI)", "url": "https://doh-fi.blahdns.com/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]');
+lockPref("network.trr.send_empty_accept-encoding_headers", false);
+lockPref("network.dns.disablePrefetch", true); // disable dns prefetching
+
+defaultPref("network.dns.disableIPv6", true); // disable ipv6
+
+// ------------------------------------
+// # NEW TAB PAGE
+// ------------------------------------
+
+lockPref("browser.newtab.preload", false);
+lockPref("browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher", false);
+lockPref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
+lockPref("browser.newtabpage.activity-stream.feeds.newtabinit", true);
+lockPref("browser.newtabpage.activity-stream.feeds.places", false);
+lockPref("browser.newtabpage.activity-stream.feeds.systemtick", false);
+lockPref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+lockPref("browser.newtabpage.activity-stream.feeds.topsites", false);
+lockPref("browser.newtabpage.activity-stream.feeds.system.topsites", false);
+lockPref("browser.newtabpage.activity-stream.feeds.system.topstories", false);
+lockPref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+lockPref("browser.newtabpage.activity-stream.feeds.snippets", false); // default
+lockPref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "{\"hidden\":true}"); // hide buggy pocket section from about:preferences#home
+lockPref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+lockPref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+lockPref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+lockPref("browser.newtabpage.activity-stream.showSponsored", false);
+lockPref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+lockPref("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", "");
+lockPref("browser.newtabpage.activity-stream.asrouter.providers.message-groups", "");
+lockPref("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", "");
+lockPref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "");
+lockPref("browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel", "{\"id\":\"whats-new-panel\",\"enabled\":false}");
+lockPref("browser.newtabpage.activity-stream.asrouter.devtoolsEnableds", true);
+lockPref("browser.newtabpage.activity-stream.telemetry", false);
+lockPref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "");
+lockPref("browser.newtabpage.activity-stream.default.sites", "");
+lockPref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
+lockPref("browser.newtabpage.activity-stream.discoverystream.config", "{\"collapsible\":true,\"enabled\":false,\"personalized\":false,\"layout_endpoint\":\"\"}");
+lockPref("browser.newtabpage.activity-stream.discoverystream.endpoints", "");
+lockPref("browser.newtabpage.activity-stream.discoverystream.engagementLabelEnabled", false); // default
+lockPref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
+lockPref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+lockPref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
+lockPref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
+lockPref("browser.newtabpage.activity-stream.fxaccounts.endpoint", "");
+
+// disable recommend as you browse
+lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+
+// -------------------------------------------
+// # DO NOT TRACK
+// -------------------------------------------
+
+// Unlocked as some think it increases fingerprint, they can now disable it
+defaultPref("privacy.donottrackheader.enabled", true);
+
+// --------------------------------
+// # DOM
+// --------------------------------
+
+defaultPref("dom.enable_performance", false);
+defaultPref("dom.enable_performance_navigation_timing", false);
+defaultPref("dom.enable_resource_timing", false);
+defaultPref("dom.disable_beforeunload", true); // disable "confirm you want to leave" pop-ups on close
+defaultPref("dom.disable_open_during_load", true);
+defaultPref("dom.push.enabled", false); // disable push notifications
+defaultPref("dom.push.connection.enabled", false);
+defaultPref("dom.push.serverURL", ""); //default "wss://push.services.mozilla.com/"
+defaultPref("dom.push.userAgentID", "");
+defaultPref("dom.disable_window_move_resize", true);
+defaultPref("dom.serviceWorkers.enabled", false); // disable service workers, must enable for push notifications
+defaultPref("dom.battery.enabled", false);
+defaultPref("dom.popup_maximum", 4); // limit maximum number of pop-ups
+defaultPref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+defaultPref("dom.vr.enabled", false); // fingerprintable
+defaultPref("dom.vibrator.enabled", false);
+defaultPref("dom.vibrator.max_vibrate_ms", 0);
+defaultPref("dom.storage.next_gen", true); // will be default from v92.0, keep and eye on
+defaultPref("dom.block_download_insecure", true);
+defaultPref("dom.event.clipboardevents.enabled", false);
+
+// --------------------------------
+// # PERMISSIONS
+// --------------------------------
+
+lockPref("permissions.delegation.enabled", false);
+defaultPref("permissions.default.geo", 2); // unlocked as some think it increases fingerprint, they can now disable it
+lockPref("permissions.manager.defaultsUrl", "");
+lockPref("permissions.default.desktop-notification", 2);
+lockPref("permissions.isolateBy.userContext", true);
+
+// --------------------------------
+// # REFERERS
+// --------------------------------
+
+// always send xorigin referer but trim them
+defaultPref("network.http.referer.XOriginPolicy", 0); // default, might be worth changing to 2
+defaultPref("network.http.referer.XOriginTrimmingPolicy", 2); // trim referer to only send scheme, host and port
+
+// --------------------------------
+// # PROXY
+// --------------------------------
+
+defaultPref("network.proxy.socks_remote_dns", true);
+
+// --------------------------------------
+// # HTTP(S)
+// --------------------------------------
+
+lockPref("network.http.altsvc.enabled", false);
+lockPref("network.http.altsvc.oe", false);
+defaultPref("dom.security.https_only_mode", true); // only allow https in all windows, including private browsing
+defaultPref("dom.security.https_only_mode_pbm", true);
+defaultPref("dom.security.https_only_mode_send_http_background_request", false);
+defaultPref("network.auth.subresource-http-auth-allow", 1); // stop cross-origin resources from using HTTP authentication
+
+// --------------------------------------
+// # TLS
+// --------------------------------------
+
+defaultPref("security.ssl.require_safe_negotiation", true); // block websites that do not support safe negotiation, occasional breakage
+lockPref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+defaultPref("security.tls.version.enable-deprecated", false); // default but helps resetting the preference
+defaultPref("browser.ssl_override_behavior", 1);
+lockPref("security.tls.enable_0rtt_data", false);
+defaultPref("security.tls.version.fallback-limit", 3);
+defaultPref("browser.xul.error_pages.expert_bad_cert", true); // advanced ui infos
+
+// --------------------------------------
+// # RFP
+// --------------------------------------
+
+defaultPref("privacy.resistFingerprinting", true);
+defaultPref("privacy.resistFingerprinting.block_mozAddonManager", true); // prevents rfp from breaking AMO
+lockPref("browser.startup.blankWindow", false); // breaks RFP windows resizing
+defaultPref("privacy.window.maxInnerWidth", 1600);
+defaultPref("privacy.window.maxInnerHeight", 900);
+
+// --------------------------------------
+// # FISSION
+// --------------------------------------
+
+defaultPref("fission.autostart", true); // enable fission by default
+
+// --------------------------------------
+// # LANGUAGE AND REGION
+// --------------------------------------
+
+/**
+show language as en-US for all users, regardless of their OS language and browser language.
+must use pref and not defaultPref to work. spoof_english also sets the UI correctly.
+ */
+pref("javascript.use_us_english_locale", true);
+pref("intl.accept_languages", "en-US, en");
+
+
+// -------------------------------------------------------
+// # EXTENSIONS - check readme section "Extensions Firewall"
+// -------------------------------------------------------
+
+// handle default restricted domains
+defaultPref("extensions.webextensions.restrictedDomains", ""); // This will allow extensions to work everywhere, default "debug-notes.log"
+lockPref("extensions.webextensions.identity.redirectDomain", ""); // Redirect basedomain used by identity api, default "extensions.allizom.org"
+
+// extension firewall, disabled by default
+// defaultPref("extensions.webextensions.base-content-security-policy", "default-src 'none'; script-src 'none'; object-src 'none';");
+// defaultPref("extensions.webextensions.base-content-security-policy.v3", "default-src 'none'; script-src 'none'; object-src 'none';");
+
+// set extensions scopes
+defaultPref("extensions.enabledScopes", 5);
+defaultPref("extensions.autoDisableScopes", 11);
+
+// about:addons ui
+defaultPref("extensions.htmlaboutaddons.recommendations.enabled", false); // disable recommendations from addons list
+lockPref("lightweightThemes.getMoreURL", ""); // disable button to get more themes
+
+// background checking and updating of extensions
+defaultPref("extensions.getAddons.showPane", false); // disable recommendations section
+defaultPref("extensions.getAddons.cache.enabled", false); // disable fetching of extension metadata
+defaultPref("lightweightThemes.getMoreURL", ""); // disable button to get more themes
+
+// report site issue, disable button and url for in depth defense
+lockPref("extensions.webcompat-reporter.enabled", false);
+lockPref("extensions.webcompat-reporter.newIssueEndpoint", "");
+
+// system addons, prevent updates and strip url for in depth defense
+defaultPref("extensions.systemAddon.update.enabled", false);
+defaultPref("extensions.systemAddon.update.url", "");
+
+defaultPref("xpinstall.signatures.devInfoURL", "");
+lockPref("extensions.webservice.discoverURL", "");
+lockPref("webextensions.storage.sync.serverURL", "");
+defaultPref("extensions.postDownloadThirdPartyPrompt", false);
+
+// -------------------------------------------------------
+// # NORMANDY
+// -------------------------------------------------------
+
+lockPref("app.normandy.enabled", false);
+lockPref("app.normandy.api_url", "");
+lockPref("app.normandy.user_id", "");
+lockPref("app.normandy.shieldLearnMoreUrl", "");
+
+// --------------------------------
+// # SECURITY
+// --------------------------------
+
+// certificates
+defaultPref("security.cert_pinning.enforcement_level", 2); // enable strict public key pinning
+defaultPref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+defaultPref("security.OCSP.enabled", 0); // disable OCSP fetching
+defaultPref("security.pki.sha1_enforcement_level", 1); // disable sha-1 certificates
+
+// mixed content
+lockPref("security.mixed_content.block_display_content", true); // block insecure passive content
+lockPref("security.mixed_content.block_active_content", true);
+lockPref("security.mixed_content.upgrade_display_content", true);
+
+// ui
+lockPref("security.insecure_connection_text.enabled", true); // display http websites as insecure in the ui
+lockPref("security.insecure_connection_icon.enabled", true);
+lockPref("security.insecure_connection_text.pbmode.enabled", true);
+lockPref("security.insecure_connection_icon.pbmode.enabled", true);
+
+lockPref("security.csp.enable", true);
+
+// -------------------------------------------------------
+// # SAFE BROWSING
+// -------------------------------------------------------
+
+// re-enabling
+defaultPref("browser.safebrowsing.malware.enabled", false);
+defaultPref("browser.safebrowsing.phishing.enabled", false);
+defaultPref("browser.safebrowsing.blockedURIs.enabled", false);
+defaultPref("browser.safebrowsing.provider.google4.gethashURL", "");
+defaultPref("browser.safebrowsing.provider.google4.updateURL", "");
+defaultPref("browser.safebrowsing.provider.google.gethashURL", "");
+defaultPref("browser.safebrowsing.provider.google.updateURL", "");
+
+// downloads
+lockPref("browser.safebrowsing.downloads.enabled", false);
+
+// remote downloads, unwanted software, data sharing
+lockPref("browser.safebrowsing.passwords.enabled", false);
+lockPref("browser.safebrowsing.downloads.remote.enabled", false);
+lockPref("browser.safebrowsing.downloads.remote.block_dangerous", false);
+lockPref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
+lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+lockPref("browser.safebrowsing.downloads.remote.url", "");
+lockPref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+lockPref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+
+// commented all below as they do no harm and make enabling SB painful
+// could potentially at some point
+// defaultPref("browser.safebrowsing.id", "");
+// defaultPref("browser.safebrowsing.provider.google4.pver", "");
+// defaultPref("browser.safebrowsing.provider.google4.advisoryName", "");
+// defaultPref("browser.safebrowsing.provider.google4.advisoryURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.lists", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.reportURL", "");
+// defaultPref("browser.safebrowsing.provider.google4.lastupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google4.nextupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.advisoryName", "");
+// defaultPref("browser.safebrowsing.provider.google.advisoryURL", "");
+// defaultPref("browser.safebrowsing.provider.google.lastupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.lists", "");
+// defaultPref("browser.safebrowsing.provider.google.nextupdatetime", "");
+// defaultPref("browser.safebrowsing.provider.google.pver", "");
+// defaultPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+// defaultPref("browser.safebrowsing.provider.google.reportURL", "");
+// defaultPref("browser.safebrowsing.reportPhishURL", "");
+
+// --------------------------------
+// # FONTS
+// --------------------------------
+
+lockPref("gfx.font_rendering.graphite.enabled", false);
+lockPref("gfx.font_rendering.opentype_svg.enabled", false);
+//lockPref("gfx.downloadable_fonts.enabled", false); keep and eye on
+lockPref("gfx.direct2d.disabled", true);
+
+lockPref("font.blacklist.underline_offset", "");
+
+// -----------------
+// QUERY STRIPPING
+// -----------------
+
+/**
+ * enable query stripping and set the strip list.
+ * currently we use the same one that brave uses:
+ * https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc#L29
+ */
+defaultPref("privacy.query_stripping.enabled", true);
+defaultPref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+
+/**
+ * librewolf specific pref that allows to include the query stripping lists in uBO by default.
+ * the asset file is fetched every 7 days.
+ */
+defaultPref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/librewolf-community/browser/source/-/raw/main/assets/uBOAssets.json");
+
+// --------------------------------
+// # MISC
+// --------------------------------
+
+// more important stuff
+lockPref("browser.shell.shortcutFavicons", false); // disable shortcut favicons from being stored in profile
+lockPref("browser.chrome.site_icons", false);
+defaultPref("browser.link.open_newwindow", 3);
+defaultPref("browser.link.open_newwindow.restriction", 0);
+defaultPref("network.file.disable_unc_paths", true); // hidden, disable using uniform naming convention
+lockPref("network.gio.supported-protocols", ""); // (hidden pref)
+lockPref("network.IDN_show_punycode", true); // use punycode in idn to prevent spoofing
+defaultPref("browser.display.use_system_colors", false); // default but enforced due to RFP
+
+// pdf reader
+defaultPref("pdfjs.disabled", false);
+defaultPref("pdfjs.enableScripting", false);
+defaultPref("pdfjs.previousHandler.alwaysAskBeforeHandling", true);
+defaultPref("pdfjs.enabledCache.state", false);
+
+// remote agent
+lockPref("remote.enabled", false);
+
+// settings and behavior
+lockPref("browser.shell.checkDefaultBrowser", false);
+lockPref("browser.shell.didSkipDefaultBrowserCheckOnFirstRun", true);
+defaultPref("startup.homepage_override_url", "about:blank");
+defaultPref("startup.homepage_welcome_url", "about:blank");
+defaultPref("startup.homepage_welcome_url.additional", "");
+defaultPref("browser.slowStartup.maxSamples", 0);
+defaultPref("browser.slowStartup.notificationDisabled", true);
+lockPref("browser.startup.homepage_override.mstone", "ignore");
+defaultPref("privacy.userContext.enabled", true);
+defaultPref("general.autoScroll", false); // OS specific
+defaultPref("clipboard.autocopy", false); // OS specific
+defaultPref("browser.tabs.loadBookmarksInTabs", true); // OS specific
+defaultPref("browser.download.manager.addToRecentDocs", false);
+defaultPref("accessibility.force_disabled", 1);
+lockPref("browser.uitour.enabled", false);
+lockPref("middlemouse.contentLoadURL", false);
+defaultPref("network.manage-offline-status", false); // let user control the offline behavior
+defaultPref("browser.helperApps.deleteTempFileOnExit", true); // delete temporary files opened with external apps
+lockPref("browser.pagethumbnails.capturing_disabled", true); // disable page thumbnails capturing
+lockPref("browser.bookmarks.max_backups", 2);
+
+// devtools
+defaultPref("devtools.theme", "dark");
+defaultPref("devtools.debugger.remote-enabled", false);
+defaultPref("devtools.chrome.enabled", false);
+defaultPref("devtools.performance.recording.ui-base-url", "http://localhost:55555"); // Default Value : https://profiler.firefox.com
+defaultPref("devtools.devices.url", "");
+defaultPref("devtools.remote.adb.extensionURL", ""); // [FF64+]
+defaultPref("devtools.remote.adb.extensionID", ""); // default adb@mozilla.org [FF64+]
+defaultPref("devtools.selfxss.count", 0); // see https://gitlab.com/librewolf-community/browser/linux/-/issues/80
+
+// ui
+defaultPref("browser.tabs.drawInTitlebar", true); // OS specific
+defaultPref("browser.aboutConfig.showWarning", false);
+defaultPref("browser.eme.ui.enabled", false);
+defaultPref("general.warnOnAboutConfig", false);
+defaultPref("browser.download.autohideButton", false);
+defaultPref("privacy.userContext.ui.enabled", true);
+lockPref("browser.messaging-system.whatsNewPanel.enabled", false);
+defaultPref("layout.css.backdrop-filter.enabled", true);
+
+// doh
+defaultPref("network.trr.confirmationNS", "skip"); // skip undesired doh test connection
+
+// urls and handlers
+lockPref("media.decoder-doctor.new-issue-endpoint", "");
+lockPref("identity.sync.tokenserver.uri", "");
+lockPref("browser.translation.engine", ""); // default Google
+lockPref("gecko.handlerService.schemes.mailto.0.uriTemplate", "");
+lockPref("gecko.handlerService.schemes.mailto.0.name", ""); // default Yahoo! Mail
+lockPref("gecko.handlerService.schemes.mailto.1.uriTemplate", "");
+lockPref("gecko.handlerService.schemes.mailto.1.name", ""); // default Gmail
+lockPref("gecko.handlerService.schemes.irc.0.uriTemplate", "");
+lockPref("gecko.handlerService.schemes.irc.0.name", "");
+lockPref("gecko.handlerService.schemes.ircs.0.uriTemplate", "");
+lockPref("gecko.handlerService.schemes.ircs.0.name", "");
+lockPref("services.settings.server", "");
+lockPref("accessibility.support.url", "");
+defaultPref("app.support.baseURL", "https://gitlab.com/librewolf-community/settings/-/wikis/support#");
+lockPref("browser.uitour.url", "");
+lockPref("webchannel.allowObject.urlWhitelist", "");
+lockPref("browser.dictionaries.download.url", "");
+lockPref("browser.geolocation.warning.infoURL", "");
+lockPref("browser.search.searchEnginesURL", "");
+lockPref("browser.uitour.themeOrigin", "");
+lockPref("toolkit.datacollection.infoURL", "");
+lockPref("identity.mobilepromo.android", "");
+lockPref("identity.mobilepromo.ios", "");
+defaultPref("identity.sendtabpromo.url", "");
+lockPref("datareporting.healthreport.infoURL", "");
+lockPref("app.feedback.baseURL", "");
+lockPref("app.releaseNotesURL", "");
+lockPref("app.releaseNotesURL.aboutDialog", "");
+lockPref("browser.chrome.errorReporter.infoURL", "");
+lockPref("datareporting.policy.firstRunURL", "");
+lockPref("media.webspeech.synth.enabled", false);
+
+// --------------------------------
+// # CACHE
+// --------------------------------
+
+lockPref("browser.privatebrowsing.forceMediaMemoryCache", true); // block media cache from writing to disk in pb mode
+defaultPref("media.memory_cache_max_size", 65536); // increase max cache size to avoid playback issues caused by above setting
+defaultPref("browser.cache.disk.enable", false); // disable disk cache
+defaultPref("browser.cache.disk_cache_ssl", false);
+
+// --------------------------------
+// # WEBGL AND PERFORMANCE
+// --------------------------------
+
+defaultPref("webgl.disabled", true);
+defaultPref("webgl.disable-fail-if-major-performance-caveat", true);
+defaultPref("webgl.enable-webgl2", false);
+defaultPref("webgl.min_capability_mode", true);
+defaultPref("webgl.enable-debug-renderer-info", false);
+
+// --------------------------------
+// # JS
+// --------------------------------
+
+lockPref("javascript.options.shared_memory", false);
+
+// --------------------------------
+// # GEO
+// --------------------------------
+
+defaultPref("geo.enabled", false);
+defaultPref("browser.search.geoSpecificDefaults", false);
+lockPref("geo.provider.ms-windows-location", false); // [WINDOWS]
+lockPref("geo.provider.use_corelocation", false); // [MAC]
+lockPref("geo.provider.use_gpsd", false); // [LINUX]
+defaultPref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+lockPref("browser.region.network.url", "");
+lockPref("browser.region.update.enabled", false);
+
+// --------------------------------
+// # PREFETCHING
+// --------------------------------
+
+lockPref("network.predictor.enabled", false); // disable predictor
+lockPref("network.prefetch-next", false); // disable link prefetching
+lockPref("network.http.speculative-parallel-limit", 0); // disable prefetching on mouse over
+lockPref("reader.parse-on-load.enabled", false);
+
+// --------------------------------
+// # OUTGOING CONNECTIONS
+// --------------------------------
+
+// updates
+lockPref("app.update.auto", false);
+lockPref("app.update.staging.enabled", false);
+lockPref("app.update.lastUpdateTime.telemetry_modules_ping", 0);
+lockPref("app.update.url.details", "https://gitlab.com/librewolf-community/browser");
+lockPref("app.update.url.manual", "https://gitlab.com/librewolf-community/browser");
+
+defaultPref("identity.fxaccounts.enabled", false); // sync and firefox account
+
+lockPref("plugin.default.state", 0);
+lockPref("plugins.update.url", "");
+
+// connectivity service
+lockPref("network.connectivity-service.enabled", false);
+lockPref("network.connectivity-service.IPv6.url", "http://0.0.0.0");
+lockPref("network.connectivity-service.IPv4.url", "http://0.0.0.0");
+lockPref("network.connectivity-service.DNSv6.domain", "");
+lockPref("network.connectivity-service.DNSv4.domain", "");
+
+// --------------------------------
+// # TELEMETRY
+// --------------------------------
+
+lockPref("toolkit.telemetry.unified", false); // master switch
+lockPref("toolkit.telemetry.enabled", false);  // master switch
+lockPref("toolkit.crashreporter.infoURL", "");
+lockPref("toolkit.telemetry.archive.enabled", false);
+lockPref("toolkit.telemetry.updatePing.enabled", false);
+lockPref("toolkit.telemetry.bhrPing.enabled", false);
+lockPref("toolkit.telemetry.cachedClientID", "");
+lockPref("toolkit.telemetry.firstShutdownPing.enabled", false);
+lockPref("toolkit.telemetry.newProfilePing.enabled", false);
+lockPref("toolkit.telemetry.previousBuildID", "");
+lockPref("toolkit.telemetry.reportingpolicy.firstRun", false); // default
+lockPref("toolkit.telemetry.server", "data:,");
+lockPref("toolkit.telemetry.server_owner", "");
+lockPref("toolkit.telemetry.shutdownPingSender.enabled", false);
+lockPref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false); // default
+lockPref("toolkit.telemetry.hybridContent.enabled", false);
+lockPref("security.protectionspopup.recordEventTelemetry", false);
+lockPref("datareporting.healthreport.uploadEnabled", false);
+lockPref("datareporting.policy.dataSubmissionEnabled", false);
+lockPref("toolkit.coverage.endpoint.base", "");
+lockPref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
+lockPref("toolkit.coverage.opt-out", true); // [HIDDEN PREF]
+lockPref("toolkit.coverage.enabled", false);
+lockPref("app.shield.optoutstudies.enabled", false);
+lockPref("browser.ping-centre.telemetry", false);
+
+// prevent sending server side analytics
+lockPref("beacon.enabled", false);
+
+// discovery
+lockPref("browser.discovery.enabled", false);
+lockPref("browser.discovery.containers.enabled", false);
+lockPref("browser.discovery.sites", "");
+
+// crash report
+lockPref("breakpad.reportURL", "");
+lockPref("browser.tabs.crashReporting.sendReport", false);
+lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
+lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+
+// captive portal
+lockPref("network.captive-portal-service.enabled", false);
+lockPref("captivedetect.canonicalURL", "");
+
+// --------------------------------
+// # WINDOWS
+// --------------------------------
+
+// disable links launching Windows Store [WINDOWS]
+lockPref("network.protocol-handler.external.ms-windows-store", false);
+
+// disable background update service [WINDOWS]
+lockPref("app.update.service.enabled", false);
+defaultPref("app.update.background.scheduling.enabled", false);
+
+// disable automatic Firefox start and session restore after reboot [WINDOWS]
+lockPref("toolkit.winRegisterApplicationRestart", false);
+
+// disable Windows 8.1 Family Safety cert [WINDOWS]
+lockPref("security.family_safety.mode", 0);
+
+// Windows only?
+lockPref("default-browser-agent.enabled", false);
+
+// disable MS auto authentication via SSO
+defaultPref("network.http.windows-sso.enabled", false);
+
+// -----------------------------------
+// # OVERRIDES
+// -----------------------------------
+
+// allow settings to be overriden with a file at `~/.cachy/cachy.overrides.cfg`
+let profile_directory;
+if (profile_directory = getenv('USERPROFILE') || getenv('HOME')) {
+  pref('autoadmin.global_config_url', `file://${profile_directory}/.cachy/cachy.overrides.cfg`);
+}
