@@ -46,7 +46,6 @@
         "SearchEngines": {
             "PreventInstalls": false,
             "Remove": [
-                "Google",
                 "Bing",
                 "Amazon.com",
                 "eBay",
