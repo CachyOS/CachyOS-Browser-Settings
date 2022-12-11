@@ -6,7 +6,7 @@
         "OverrideFirstRunPage": "",
         "OverridePostUpdatePage": "",
         "DisableSystemAddonUpdate": true,
-        "DisableFirefoxAccounts": true,
+        "DisableFirefoxAccounts": false,
         "DisableProfileImport": false,
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
@@ -32,7 +32,7 @@
             "Install": [
                 "https://github.com/catppuccin/firefox/releases/download/old/catppuccin_mocha_blue.xpi",
                 "https://addons.mozilla.org/firefox/downloads/file/3864535/canvasblocker-1.8-an+fx.xpi",
-                "https://addons.mozilla.org/firefox/downloads/file/4027736/ublock_origin-1.45.0.xpi",
+                "https://addons.mozilla.org/firefox/downloads/file/4028976/ublock_origin-1.45.2.xpi",
                 "https://addons.mozilla.org/firefox/downloads/file/4021899/darkreader-4.9.60.xpi"
             ],
             "Uninstall": [
