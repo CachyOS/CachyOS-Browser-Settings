@@ -1,17 +1,12 @@
 {
-  "timeStamp": 1626271151916,
-  "version": "1.36.2",
+  "timeStamp": 1674403810760,
+  "version": "1.46.0",
   "userSettings": {
-    "alwaysDetachLogger": false,
-    "externalLists": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_TrackParam/filter.txt",
+    "advancedUserEnabled": true,
     "firewallPaneMinimized": false,
-    "importedLists": [
-      "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_TrackParam/filter.txt"
-    ],
+    "importedLists": [],
     "popupPanelSections": 31,
-    "showIconBadge": false,
-    "tooltipsDisabled": true,
-    "webrtcIPAddressHidden": true
+    "showIconBadge": false
   },
   "selectedFilterLists": [
     "user-filters",
@@ -23,27 +18,29 @@
     "adguard-generic",
     "easylist",
     "adguard-spyware",
+    "adguard-spyware-url",
     "block-lan",
     "easyprivacy",
     "urlhaus-1",
-    "fanboy-social",
+    "curben-phishing",
+    "adguard-annoyance",
+    "adguard-social",
     "ublock-annoyances",
-    "DEU-0",
-    "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_TrackParam/filter.txt"
+    "DEU-0"
   ],
   "hiddenSettings": {},
   "whitelist": [
-    "# edge-scheme",
-    "# wyciwyg-scheme",
     "about-scheme",
     "chrome-extension-scheme",
     "chrome-scheme",
+    "edge-scheme",
     "moz-extension-scheme",
     "opera-scheme",
-    "vivaldi-scheme"
+    "vivaldi-scheme",
+    "wyciwyg-scheme"
   ],
-  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop\n* doubleclick.net * block",
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop\n* facebook.net * block",
   "urlFilteringString": "",
-  "hostnameSwitchesString": "no-csp-reports: * true\nno-large-media: behind-the-scene false\nno-csp-reports: noscript-csp.invalid false",
-  "userFilters": "||fonts.googleapis.com$important,third-party\n||youtube-nocookie.com/embed/$3p,frame,redirect=click2load.html\n||youtube.com/embed/$3p,frame,redirect=click2load.html\n||scribd.com/embeds/$3p,frame,redirect=click2load.html\n||player.vimeo.com/video/$3p,frame,redirect=click2load.html\n||dailymotion.com/embed/$3p,frame,redirect=click2load.html\n"
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true\nno-csp-reports: noscript-csp.invalid false",
+  "userFilters": "||facebook.com/plugins/$3p,frame,redirect=click2load.html\n||fonts.googleapis.com\n"
 }
