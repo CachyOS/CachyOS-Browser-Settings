@@ -11,10 +11,10 @@ We encourage users to find **their own setup** and to use our default configurat
 
 - Enhanced security & privacy.
 - Gentoo patches. Taken from Gentoo's Firefox.
-- Dark Reader, ClearURLs, CanvasBlocker added.
+- uBlock Origin added.
 - Moonlight theme added.
 - Preset for "Profile Sync Daemon" and Firejail/Firejail(hardened) available.
-- Custom Rules for CanvasBlocker & uBlock Origin.
+- Custom Rules for uBlock Origin.
 - Custom branding.
 
 ### Notes and thanks
