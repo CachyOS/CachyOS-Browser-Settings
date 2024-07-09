@@ -13,11 +13,6 @@
         "DisablePocket": true,
         "DisableSetDesktopBackground": false,
         "DisableDeveloperTools": false,
-        "DNSOverHTTPS": {
-            "Enabled": false,
-            "ProviderURL": "",
-            "Locked": false
-        },
         "NoDefaultBookmarks": true,
         "WebsiteFilter": {
             "Block": [
